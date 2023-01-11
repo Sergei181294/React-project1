@@ -9,6 +9,10 @@ interface Task {
        isDone: boolean;
 }
 
+interface AppProps {
+       className?: string;
+     }
+
 interface AppState {
        newTaskInput: string;
        tasks: Task[];
@@ -17,7 +21,7 @@ interface AppState {
 }
 
 
-export class App extends Component<{}, AppState>  {
+export class App extends Component<AppProps, AppState>  {
 
        state: AppState = {
               newTaskInput: "",
@@ -33,7 +37,7 @@ export class App extends Component<{}, AppState>  {
               { id: '3', label: 'Сделано', value: 'made' },
        ];
 
-       localStorageKey = '__users__';
+       localStorageKey = 'tasks';
 
        addTaskHandler() {
               if (this.state.newTaskInput.trim().length === 0) {
@@ -100,7 +104,7 @@ export class App extends Component<{}, AppState>  {
                                    })
                                    .map(task => <li className = {css.item} key={task.id}>
                                           <div className= {css.itemBlock}>
-                                          <Checkbox checked={task.isDone} onChange={() => this.toggleTaskHandler(task.id)} />
+                                          <Checkbox  checked={task.isDone} onChange={() => this.toggleTaskHandler(task.id)} />
                                           {task.label}
                                           </div>
                                           {task.isDone && <Button className={css.alertBtn} onClick={() => this.deleteTaskHandler(task.id)} children="Удалить задачу" />}
