@@ -1,0 +1,20 @@
+.list {
+       list-style: none;
+       padding: 0;
+}
+     
+.alertBtn {
+       color:red;
+       margin: 0;
+}
+.item {
+       margin: 20px 0 0 20px;
+       display: flex;  
+       justify-content: space-between;
+       width: 570px;    
+}
+.itemBlock {
+       align-self: center;
+}
+
+
