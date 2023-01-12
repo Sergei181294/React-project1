@@ -17,7 +17,6 @@ interface AppState {
        newTaskInput: string;
        tasks: Task[];
        filter: string;
-       counter: number;
 }
 
 
@@ -25,10 +24,8 @@ export class App extends Component<AppProps, AppState>  {
 
        state: AppState = {
               newTaskInput: "",
-              tasks: [{ id: 1, label: 'Выучить JS', isDone: true }, { id: 2, label: 'Выучить React', isDone: false }],
+              tasks: [],
               filter: "all",
-              counter: 0,
-
        }
 
        filters = [
